@@ -3,39 +3,43 @@ import datetime
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
+from dash.dependencies  import Input, Output
 
 app = dash.Dash()
 
-stock = 'TSLA'
-start = datetime.datetime(2015,1,1)
-end = datetime.datetime.now()
-df = web.DataReader(stock, 'morningstar', start, end)
-df.reset_index(inplace=True)
-df = df.drop("Symbol", axis = 1)
-
 app.layout = html.Div(children = [
-
-    html.H1(children = 'Housing Price Graph'),
-
     html.Div(children = '''
-
-    Making a stock graph!
-
+        Symbol to Graph
     '''),
+    dcc.Input(id = 'input', value = '', type = 'text'),
+    html.Div(id = 'output-graph')
+])
 
-    dcc.Graph(
 
+@app.callback(
+    Output(component_id = 'output-graph', component_property = 'children'),
+    [Input(component_id = 'input', component_property = 'value')]
+)
+
+def update_graph(input_data):
+    start = datetime.datetime(2015,1,1)
+    end = datetime.datetime.now()
+    df = web.DataReader(input_data, 'morningstar', start, end)
+    df.reset_index(inplace = True)
+    df.set_index('Date', inplace = True)
+    df = df.drop("Symbol", axis = 1)
+
+    return dcc.Graph(
         id = 'graph',
         figure = {
             'data': [
-            {'x': df.index, 'y': df.Close, 'type': 'line', 'name': stock},
-        ],
-        'layout': {
-            'title': stock
+                {'x': df.index, 'y': df.Close, 'type': 'candle', 'name': input_data},
+            ],
+            'layout': {
+                'title': input_data
             }
         }
-      )
-    ])
+    )
 
 if __name__ == '__main__':
     app.run_server(debug=True)
