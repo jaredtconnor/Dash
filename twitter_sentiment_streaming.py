@@ -13,6 +13,9 @@ cursor = conn.cursor()
 
 def create_table():
     cursor.execute("CREATE TABLE IF NOT EXISTS sentiment(unix REAL, tweet TEXT, sentiment REAL)")
+    cursor.execute("CREATE INDEX fast_unix ON sentiment(unix)")
+    cursor.execute("CREATE INDEX fast_tweet ON sentiment(tweet)")
+    cursor.execute("CREATE INDEX fast_sentiment ON sentiment(sentiment)")
     conn.commit()
 
 create_table()
@@ -44,8 +47,12 @@ class listener(StreamListener):
     def on_error(self, status):
         print(status)
 
-auth = OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_secret)
-
-twitterStream = Stream(auth, listener())
-twitterStream.filter(track = ["a","e","i","o","u"])
+while True:
+    try:
+        auth = OAuthHandler(consumer_key, consumer_secret)
+        auth.set_access_token(access_token, access_secret)
+        twitterStream = Stream(auth, listener())
+        twitterStream.filter(track = ["a","e","i","o","u"])
+    except Exception as e:
+        print(str(e))
+        time.sleep(5)
