@@ -5,17 +5,17 @@ import sqlite3 as sql
 import json
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from unidecode import unidecode
+import time
 
 analyzer = SentimentIntensityAnalyzer()
 
 conn = sql.connect('twitter_sentiment.db')
 cursor = conn.cursor()
 
-consumer_key = "6JvfDG04UCFlpYThWPBYD43U8"
-consumer_secret = "cYN3bPUthnoiaiZJjHWHK8VTLF4wk32wTg8TmKIpMwtIcIGZa7"
+consumer_key = "JfhNSUpRBnCkQekjkTOIL86uR"
+consumer_secret = "StOVv2LE3HASVAp1pPP3sZkbucEXnPLMssVAcxPsQ3F7POAaxA"
 access_token = "444822244-BnyUlvHCrRJ0gB7LLgZOuH96aSfMrL9f8Mi8mXRT"
 access_secret = "EWpuLcNJ3WcNCmBQ17b1CBwPtAviBQyb0jgI9KGdZvsiU"
-
 
 def create_table():
     try:
@@ -40,16 +40,15 @@ class listener(StreamListener):
             sentiment = vs['compound']
             print(time_ms, tweet, sentiment)
             cursor.execute("INSERT INTO sentiment (unix, tweet, sentiment) VALUES (?, ?, ?)",
-                        (time_ms, tweet, sentiment))
+                  (time_ms, tweet, sentiment))
             conn.commit()
 
         except KeyError as e:
-            print(f"Error: {str(e)}")
+            print(str(e))
         return(True)
 
-
     def on_error(self, status):
-        print(status)
+        print(f"Status error: {status}")
 
 while True:
     try:
