@@ -1,0 +1,16 @@
+Execution failed on sql 'SELECT * FROM sentiment WHERE tweet LIKFE %royal% ORDER BY unix DESC LIMIT 1000': near "LIKFE": syntax error
+Execution failed on sql 'SELECT * FROM sentiment WHERE tweet LIKFE %royal% ORDER BY unix DESC LIMIT 1000': near "LIKFE": syntax error
+Execution failed on sql 'SELECT * FROM sentiment WHERE tweet LIKFE %royal% ORDER BY unix DESC LIMIT 1000': near "LIKFE": syntax error
+Execution failed on sql 'SELECT * FROM sentiment WHERE tweet LIKFE %royal% ORDER BY unix DESC LIMIT 1000': near "LIKFE": syntax error
+Execution failed on sql 'SELECT * FROM sentiment WHERE tweet LIKFE %royal% ORDER BY unix DESC LIMIT 1000': near "LIKFE": syntax error
+Execution failed on sql 'SELECT * FROM sentiment WHERE tweet LIKFE %royal% ORDER BY unix DESC LIMIT 1000': near "LIKFE": syntax error
+Execution failed on sql 'SELECT * FROM sentiment WHERE tweet LIKFE %royal% ORDER BY unix DESC LIMIT 1000': near "LIKFE": syntax error
+Execution failed on sql 'SELECT * FROM sentiment WHERE tweet LIKFE %royal% ORDER BY unix DESC LIMIT 1000': near "LIKFE": syntax error
+Execution failed on sql 'SELECT * FROM sentiment WHERE tweet LIKFE %royal% ORDER BY unix DESC LIMIT 1000': near "LIKFE": syntax error
+Execution failed on sql 'SELECT * FROM sentiment WHERE tweet LIKFE %royal% ORDER BY unix DESC LIMIT 1000': near "LIKFE": syntax error
+Execution failed on sql 'SELECT * FROM sentiment WHERE tweet LIKFE %royal% ORDER BY unix DESC LIMIT 1000': near "LIKFE": syntax error
+Execution failed on sql 'SELECT * FROM sentiment WHERE tweet LIKFE %royal% ORDER BY unix DESC LIMIT 1000': near "LIKFE": syntax error
+Execution failed on sql 'SELECT * FROM sentiment WHERE tweet LIKFE %royal% ORDER BY unix DESC LIMIT 1000': near "LIKFE": syntax error
+Execution failed on sql 'SELECT * FROM sentiment WHERE tweet LIKFE %royal% ORDER BY unix DESC LIMIT 1000': near "LIKFE": syntax error
+Execution failed on sql 'SELECT * FROM sentiment WHERE tweet LIKFE %royal% ORDER BY unix DESC LIMIT 1000': near "LIKFE": syntax error
+Execution failed on sql 'SELECT * FROM sentiment WHERE tweet LIKFE %royal% ORDER BY unix DESC LIMIT 1000': near "LIKFE": syntax error
