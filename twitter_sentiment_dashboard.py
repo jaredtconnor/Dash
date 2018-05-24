@@ -25,7 +25,7 @@ app.layout = html.Div(
               [Input(component_id = 'sentiment_keyword', component_property = 'value')],
               events = [Event('graph-update', 'interval')])
 
-def updated_graph_scatter():
+def updated_graph_scatter(sentiment_keyword):
     try:
         conn = sql.connect("twitter_sentiment.db")
         cursor = conn.cursor()

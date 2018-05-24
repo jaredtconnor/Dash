@@ -12,10 +12,10 @@ analyzer = SentimentIntensityAnalyzer()
 conn = sql.connect('twitter_sentiment.db')
 cursor = conn.cursor()
 
-consumer_key = "JfhNSUpRBnCkQekjkTOIL86uR"
-consumer_secret = "StOVv2LE3HASVAp1pPP3sZkbucEXnPLMssVAcxPsQ3F7POAaxA"
-access_token = "444822244-BnyUlvHCrRJ0gB7LLgZOuH96aSfMrL9f8Mi8mXRT"
-access_secret = "EWpuLcNJ3WcNCmBQ17b1CBwPtAviBQyb0jgI9KGdZvsiU"
+consumer_key = "asdf"
+consumer_secret = "asdf"
+access_token = "asdf"
+access_secret = "asdf"
 
 def create_table():
     try:
