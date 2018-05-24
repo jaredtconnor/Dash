@@ -12,17 +12,17 @@ analyzer = SentimentIntensityAnalyzer()
 conn = sql.connect('twitter_sentiment.db')
 cursor = conn.cursor()
 
-consumer_key = "asdf"
-consumer_secret = "asdf"
-access_token = "asdf"
-access_secret = "asdf"
+consumer_key = "JfhNSUpRBnCkQekjkTOIL86uR"
+consumer_secret = "StOVv2LE3HASVAp1pPP3sZkbucEXnPLMssVAcxPsQ3F7POAaxA"
+access_token = "444822244-BnyUlvHCrRJ0gB7LLgZOuH96aSfMrL9f8Mi8mXRT"
+access_secret = "EWpuLcNJ3WcNCmBQ17b1CBwPtAviBQyb0jgI9KGdZvsiU"
 
 def create_table():
     try:
         cursor.execute("CREATE TABLE IF NOT EXISTS sentiment(unix REAL, tweet TEXT, sentiment REAL)")
-        cursor.execute("CREATE INDEX IF NOT EXISTS fast_unix ON sentiment(unix)")
-        cursor.execute("CREATE INDEX IF NOT EXISTS fast_tweet ON sentiment(tweet)")
-        cursor.execute("CREATE INDEX IF NOT EXISTS fast_sentiment ON sentiment(sentiment)")
+        cursor.execute("CREATE INDEX fast_unix ON sentiment(unix)")
+        cursor.execute("CREATE INDEX fast_tweet ON sentiment(tweet)")
+        cursor.execute("CREATE INDEX fast_sentiment ON sentiment(sentiment)")
         conn.commit()
     except Exception as e:
         print(f"Database Error: {str(e)}")
