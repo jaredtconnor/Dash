@@ -20,9 +20,9 @@ access_secret = "asdf"
 def create_table():
     try:
         cursor.execute("CREATE TABLE IF NOT EXISTS sentiment(unix REAL, tweet TEXT, sentiment REAL)")
-        cursor.execute("CREATE INDEX IF NOT EXISTS fast_unix ON sentiment(unix)")
-        cursor.execute("CREATE INDEX IF NOT EXISTS fast_tweet ON sentiment(tweet)")
-        cursor.execute("CREATE INDEX IF NOT EXISTS fast_sentiment ON sentiment(sentiment)")
+        cursor.execute("CREATE INDEX fast_unix ON sentiment(unix)")
+        cursor.execute("CREATE INDEX fast_tweet ON sentiment(tweet)")
+        cursor.execute("CREATE INDEX fast_sentiment ON sentiment(sentiment)")
         conn.commit()
     except Exception as e:
         print(f"Database Error: {str(e)}")
